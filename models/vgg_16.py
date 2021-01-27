@@ -4,6 +4,19 @@ from tensorflow.keras.utils import get_file
 
 
 def vgg16(img_input=(224, 224, 3), path_url=None):
+    """
+
+    :param img_input: size of the image as tuple
+    :param path_url: url_path to the pretrained weights
+    :return: return the vgg_16 without including top
+
+    :example
+
+    m = vgg16(img_input=(228, 228, 3),
+          path_url='https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5')
+
+    """
+
     # Block 1
     input = Input(shape=img_input)
     x = Conv2D(64, (3, 3), activation='relu', padding='same', name='block1_conv1')(input)
@@ -42,6 +55,8 @@ def vgg16(img_input=(224, 224, 3), path_url=None):
 
     return model
 
+
+# try
 
 m = vgg16(img_input=(228, 228, 3),
           path_url='https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5')
