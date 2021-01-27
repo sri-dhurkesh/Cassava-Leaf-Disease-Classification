@@ -3,17 +3,19 @@ from tensorflow.keras import Model
 from tensorflow.keras.utils import get_file
 
 
-def vgg16(img_input=(224, 224, 3), path_url=None):
+def vgg16(img_input=(224, 224, 3), path_url=None, path_to_save_h5_file=None):
     """
 
-    :param img_input: size of the image as tuple
-    :param path_url: url_path to the pretrained weights
+    :param path_to_save_h5_file: Destination directory to store a downloaded h5 file with a preferred name. (type-> str)
+    :param img_input: size of the image as tuple [(224,224,3)--> Default]. (type-> tuple)
+    :param path_url: url_path to the pretrained weights. (type-> str)
     :return: return the vgg_16 model without including top
 
     :example
 
-    m = vgg16(img_input=(228, 228, 3),
-          path_url='https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5')
+    models = vgg16(img_input=(560, 560, 3),
+               path_url='https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5',
+               path_to_save_h5_file='/media/sri/shared/SEM-8/cassava leaf disease classification/vgg16_without_top.h5')
 
     """
 
@@ -47,7 +49,7 @@ def vgg16(img_input=(224, 224, 3), path_url=None):
     x = MaxPooling2D((2, 2), strides=(2, 2), name='block5_pool')(x)
 
     model = Model(input, x, name='vgg16')
-    path = get_file('/media/sri/shared/SEM-8/cassava leaf disease classification/vgg16_without_top.h5', path_url,
+    path = get_file(path_to_save_h5_file, path_url,
                     cache_dir='/media/sri/shared/SEM-8/cassava leaf disease classification/cache')
 
     model.load_weights(path)
@@ -58,6 +60,7 @@ def vgg16(img_input=(224, 224, 3), path_url=None):
 
 # try
 '''
-m = vgg16(img_input=(228, 228, 3),
-          path_url='https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5')
-          '''
+models = vgg16(img_input=(560, 560, 3),
+               path_url='https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5',
+               path_to_save_h5_file='/media/sri/shared/SEM-8/cassava leaf disease classification/vgg16_without_top.h5')
+'''
