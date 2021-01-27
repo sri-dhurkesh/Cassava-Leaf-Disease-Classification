@@ -57,6 +57,7 @@ def vgg16(img_input=(224, 224, 3), path_url=None):
 
 
 # try
-
+'''
 m = vgg16(img_input=(228, 228, 3),
           path_url='https://github.com/fchollet/deep-learning-models/releases/download/v0.1/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5')
+          '''
