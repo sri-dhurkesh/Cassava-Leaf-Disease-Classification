@@ -8,7 +8,7 @@ def vgg16(img_input=(224, 224, 3), path_url=None):
 
     :param img_input: size of the image as tuple
     :param path_url: url_path to the pretrained weights
-    :return: return the vgg_16 without including top
+    :return: return the vgg_16 model without including top
 
     :example
 
