@@ -3,7 +3,7 @@ from albumentations import (
     Compose, HorizontalFlip, Blur,
     ToFloat, ShiftScaleRotate, RandomBrightnessContrast, GaussianBlur, RandomCrop, HueSaturationValue
 )
-
+# augmentation
 AUGMENTATIONS_TRAIN = Compose(
     [
         HorizontalFlip(p=0.3),

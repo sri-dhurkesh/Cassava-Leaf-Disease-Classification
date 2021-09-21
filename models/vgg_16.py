@@ -10,6 +10,7 @@ def vgg16(img_input=(224, 224, 3), path_url=None, path_to_save_h5_file=None):
     :param img_input: size of the image as tuple [(224,224,3)--> Default]. (type-> tuple)
     :param path_url: url_path to the pretrained weights. (type-> str)
     :return: return the vgg_16 model without including top
+    #
 
     :example
 
