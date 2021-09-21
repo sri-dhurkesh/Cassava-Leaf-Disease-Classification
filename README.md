@@ -1,2 +1,4 @@
 # Cassava-Leaf-Disease-Classification
 Identify the type of disease present on a Cassava Leaf image
+And deployed in heroku
+
